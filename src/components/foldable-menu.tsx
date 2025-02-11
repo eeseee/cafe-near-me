@@ -36,7 +36,7 @@ export default function Menu({
             initial="folded"
         >
             <motion.div 
-                className="grid aspect-[800/569]" 
+                className="grid aspect-square md:aspect-[800/569]" 
                 onHoverStart={() => setIsFolded(false)} 
                 onHoverEnd={() => setIsFolded(true)}
             >

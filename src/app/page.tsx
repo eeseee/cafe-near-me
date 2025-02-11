@@ -46,10 +46,10 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 2 }}
       >
         <Header />
-        <div className="hidden md:block h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
+        <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
           <Menu dragX={dragX}/>
         </div>
-        <div className="block md:hidden h-3/4 w-3/4 content-center">
+        {/* <div className="block md:hidden h-3/4 w-3/4 content-center">
           <div className="w-full h-full grid grid-cols-3">
             <motion.div 
               style={{skewY: "1deg" }}
@@ -63,12 +63,12 @@ export default function Home() {
               className="bg-contain bg-center bg-no-repeat bg-[url(/menu-front.png)] origin-bottom-left shadow-xl"
               ></motion.div>
           </div>
-        </div>
+        </div> */}
         <motion.div
           initial={{opacity: 0}}
           animate={{ opacity: 1}}
           transition={{ ease: "easeIn", duration: 0.5, delay: 3}}
-          className="hidden md:block pt-5"
+          className="pt-5"
         >
           <motion.p
             style={{ opacity: textOpacity, y: textPosition }}
