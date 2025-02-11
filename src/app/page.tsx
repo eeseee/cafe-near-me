@@ -47,11 +47,6 @@ export default function Home() {
       >
         <Header />
         <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
-          <div className="grid aspect-[800/569] bg-gray-200">
-            <div className="bg-contain bg-center bg-no-repeat bg-[url(/menu-front.png)]"></div>
-          </div>
-        </div>
-        <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
           <Menu dragX={dragX}/>
         </div>
         <motion.div
