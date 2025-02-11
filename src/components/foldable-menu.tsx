@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, useTransform, MotionStyle, useMotionValueEvent, MotionValue } from "framer-motion";
+import Image from "next/image";
 import React, { useState } from "react";
 
 interface MenuProps {
@@ -43,16 +44,22 @@ export default function Menu({
                 <div className="grid grid-cols-3 [grid-area:1/1]">
                     <motion.div 
                         style={{ x: xLeftSection, skewY: "1deg" }}
-                        className="bg-contain bg-center bg-no-repeat bg-[url(/menu-center.png)] origin-bottom-right shadow-xl"
-                    ></motion.div>
+                        className="origin-bottom-right shadow-xl"
+                    >
+                        <Image src="/menu-center.png" width={300} height={640} alt="menu-center"/>
+                    </motion.div>
                     <motion.div 
                         style={{ scaleX: centerScale, "--brightness": centerBrightness } as MotionStyle}
-                        className="bg-contain bg-center bg-no-repeat bg-[url(/menu-right.png)] brightness-[--brightness] shadow-xl"
-                    ></motion.div>
+                        className="brightness-[--brightness] shadow-xl"
+                    >
+                        <Image src="/menu-right.png" width={300} height={640} alt="menu-right"/>
+                    </motion.div>
                     <motion.div 
                         style={{ x: xRightSection, skewY: "-1deg" }}
-                        className="bg-contain bg-center bg-no-repeat bg-[url(/menu-front.png)] origin-bottom-left shadow-xl"
-                    ></motion.div>
+                        className="origin-bottom-left shadow-xl"
+                    >
+                        <Image src="/menu-front.png" width={300} height={640} alt="menu-front"/>
+                    </motion.div>
                 </div>
                 <motion.div
                     drag="x"
