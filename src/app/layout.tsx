@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Viewport } from "next";
 import "./globals.css";
 
 
@@ -8,6 +9,10 @@ export const metadata: Metadata = {
     icon: "/favicon.ico"
   }
 };
+
+export const viewport: Viewport = {
+  
+}
 
 export default function RootLayout({
   children,

@@ -59,6 +59,7 @@ export default function Menu({
                     _dragX={dragX}
                     style={{ x: dragX }}
                     dragConstraints={{ left: 0, right: 300 }}
+                    dragListener={true}
                     dragTransition={{
                         modifyTarget: (target) => {
                             return target > 150 ? 300 : 0;
