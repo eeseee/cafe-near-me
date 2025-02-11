@@ -12,10 +12,10 @@ export default function Menu({
     dragX,
 }: MenuProps) {
     const [isFolded, setIsFolded] = useState<boolean>(true);
-    const xLeftSection = useTransform(dragX, [0, 300], ["100%", "0%"]);
-    const xRightSection = useTransform(dragX, [0, 300], ["-100%", "0%"]);
-    const centerScale = useTransform(dragX, [150, 300], [0.0, 1.001]);
-    const centerBrightness = useTransform(dragX, [150, 300], [0.8, 1]);
+    const xLeftSection = useTransform(dragX, [0, 200], ["100%", "0%"]);
+    const xRightSection = useTransform(dragX, [0, 200], ["-100%", "0%"]);
+    const centerScale = useTransform(dragX, [100, 200], [0.0, 1.001]);
+    const centerBrightness = useTransform(dragX, [100, 200], [0.8, 1]);
 
     useMotionValueEvent(dragX, "change", (currentX) => {
         if (currentX > 260) {
@@ -65,11 +65,11 @@ export default function Menu({
                     drag="x"
                     _dragX={dragX}
                     style={{ x: dragX }}
-                    dragConstraints={{ left: 0, right: 300 }}
+                    dragConstraints={{ left: 0, right: 200 }}
                     dragListener={true}
                     dragTransition={{
                         modifyTarget: (target) => {
-                            return target > 150 ? 300 : 0;
+                            return target > 100 ? 200 : 0;
                         },
                         timeConstant: 45
                     }}
