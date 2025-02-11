@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import Header from "@/components/header";
 import Menu from "@/components/foldable-menu";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -45,19 +46,27 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 2 }}
       >
         <Header />
-        <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px]">
+        <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
           <Menu dragX={dragX}/>
         </div>
         <motion.div
           initial={{opacity: 0}}
           animate={{ opacity: 1}}
           transition={{ ease: "easeIn", duration: 0.5, delay: 3}}
+          className="pt-5"
         >
           <motion.p
             style={{ opacity: textOpacity, y: textPosition }}
-            className="text-[#5F5F5F]"
+            className="text-[#5F5F5F] flex items-center"
           >
             drag to open
+            <motion.span
+              initial={{ x: 0}}
+              animate={{ x: 10 }}
+              transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+            >
+              <ArrowRight className="ml-2 h-4 w-4"/>
+            </motion.span>
           </motion.p>
         </motion.div>
       </motion.main>
