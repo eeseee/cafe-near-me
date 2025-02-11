@@ -11,8 +11,8 @@ import { ArrowRight } from "lucide-react";
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
   const dragX = useMotionValue(0);
-  const textOpacity = useTransform(dragX, [0, 300], [1, 0]);
-  const textPosition = useTransform(dragX, [0, 300], [0, 50]);
+  const textOpacity = useTransform(dragX, [0, 200], [1, 0]);
+  const textPosition = useTransform(dragX, [0, 200], [0, 50]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
