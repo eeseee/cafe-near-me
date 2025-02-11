@@ -50,7 +50,7 @@ export default function Home() {
           <Menu dragX={dragX}/>
         </div>
         <div className="block md:hidden h-3/4 w-3/4 content-center">
-          <div className="aspect-[800/569] grid grid-cols-3 [grid-area:1/1]">
+          <div className="w-full h-full grid grid-cols-3">
             <motion.div 
               style={{skewY: "1deg" }}
               className="bg-contain bg-center bg-no-repeat bg-[url(/menu-center.png)] origin-bottom-right shadow-xl"
