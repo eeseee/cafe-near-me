@@ -47,7 +47,9 @@ export default function Home() {
       >
         <Header />
         <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center bg-gray-200">
-          Static Menu Placeholder
+          <div className="grid aspect-[800/569]">
+            Static Menu Placeholder
+          </div>
         </div>
         <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
           <Menu dragX={dragX}/>
