@@ -46,24 +46,12 @@ export default function Home() {
         transition={{ ease: "easeIn", duration: 0.5, delay: 2 }}
       >
         <Header />
+        <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center bg-gray-200">
+          Static Menu Placeholder
+        </div>
         <div className="h-3/4 w-3/4 min-w-[300px] max-w-[900px] content-center">
           <Menu dragX={dragX}/>
         </div>
-        {/* <div className="block md:hidden h-3/4 w-3/4 content-center">
-          <div className="w-full h-full grid grid-cols-3">
-            <motion.div 
-              style={{skewY: "1deg" }}
-              className="bg-contain bg-center bg-no-repeat bg-[url(/menu-center.png)] origin-bottom-right shadow-xl"
-            ></motion.div>
-            <motion.div
-              className="bg-contain bg-center bg-no-repeat bg-[url(/menu-right.png)] brightness-[--brightness] shadow-xl"
-            ></motion.div>
-            <motion.div 
-              style={{ skewY: "-1deg" }}
-              className="bg-contain bg-center bg-no-repeat bg-[url(/menu-front.png)] origin-bottom-left shadow-xl"
-              ></motion.div>
-          </div>
-        </div> */}
         <motion.div
           initial={{opacity: 0}}
           animate={{ opacity: 1}}
