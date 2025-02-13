@@ -1,29 +1,26 @@
 "use client"
 
-import { motion, useTransform, MotionStyle, useMotionValueEvent, MotionValue } from "framer-motion";
+import { motion, useTransform, MotionStyle, MotionValue } from "framer-motion";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 interface MenuProps {
     dragX: MotionValue
+    isZoomed: boolean
+    isFolded: boolean
+    setIsFolded: (isFolded: boolean) => void
 }
 
 export default function Menu({
     dragX,
+    isZoomed,
+    isFolded,
+    setIsFolded,
 }: MenuProps) {
-    const [isFolded, setIsFolded] = useState<boolean>(true);
     const xLeftSection = useTransform(dragX, [0, 200], ["100%", "0%"]);
     const xRightSection = useTransform(dragX, [0, 200], ["-100%", "0%"]);
     const centerScale = useTransform(dragX, [100, 200], [0.0, 1.001]);
     const centerBrightness = useTransform(dragX, [100, 200], [0.8, 1]);
-
-    useMotionValueEvent(dragX, "change", (currentX) => {
-        if (currentX > 260) {
-            setIsFolded(false);
-        } else {
-            setIsFolded(true);
-        }
-    })
 
     const anim = {
         open: { scale: 1, rotate: "0deg" },
