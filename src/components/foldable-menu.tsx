@@ -13,7 +13,6 @@ interface MenuProps {
 
 export default function Menu({
     dragX,
-    isZoomed,
     isFolded,
     setIsFolded,
 }: MenuProps) {
