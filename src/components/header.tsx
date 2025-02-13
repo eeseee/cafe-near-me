@@ -9,7 +9,7 @@ export default function Header() {
 
     return (
         <motion.header 
-            className="p-5 fixed top-0 w-full"
+            className="p-5 w-full"
             initial={{opacity: 0}}
             animate={{ opacity: 1}}
             transition={{ ease: "easeIn", duration: 0.5, delay: 3}}

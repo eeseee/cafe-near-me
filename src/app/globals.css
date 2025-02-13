@@ -11,7 +11,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Helvetica Neue';
-  overflow-x: hidden;
+  overflow: hidden;
   margin: 0
 }
 

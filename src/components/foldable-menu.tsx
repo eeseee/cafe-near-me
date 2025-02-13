@@ -1,29 +1,35 @@
 "use client"
 
-import { motion, useTransform, MotionStyle, MotionValue } from "framer-motion";
+import { motion, useTransform, useMotionValueEvent, MotionStyle, MotionValue } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 interface MenuProps {
     dragX: MotionValue
     isZoomed: boolean
-    isFolded: boolean
-    setIsFolded: (isFolded: boolean) => void
 }
 
 export default function Menu({
     dragX,
-    isFolded,
-    setIsFolded,
+    isZoomed,
 }: MenuProps) {
+    const [isFolded, setIsFolded] = useState<boolean>(true);
     const xLeftSection = useTransform(dragX, [0, 200], ["100%", "0%"]);
     const xRightSection = useTransform(dragX, [0, 200], ["-100%", "0%"]);
     const centerScale = useTransform(dragX, [100, 200], [0.0, 1.001]);
     const centerBrightness = useTransform(dragX, [100, 200], [0.8, 1]);
 
+     useMotionValueEvent(dragX, "change", (currentX) => {
+        if (currentX > 260) {
+            setIsFolded(false);
+        } else {
+            setIsFolded(true);
+        }
+      });
+
     const anim = {
-        open: { scale: 1, rotate: "0deg" },
-        folded: { scale: 0.9, rotate: "3deg" }
+        open: { scale: 1.0, rotate: "0deg" },
+        folded: { scale: 0.9, rotate: "3deg" },
     }
 
     return (
@@ -31,13 +37,14 @@ export default function Menu({
             animate={isFolded ? "folded" : "open"}
             variants={anim}
             initial="folded"
+            className={isZoomed ? "w-[650px] h-[462px]" : ""}
         >
             <motion.div 
-                className="grid aspect-[800/569]" 
+                className="grid aspect-[800/569]"
                 onHoverStart={() => setIsFolded(false)} 
                 onHoverEnd={() => setIsFolded(true)}
             >
-                <div className="grid grid-cols-3 [grid-area:1/1]">
+                <div className={"grid grid-cols-3 [grid-area:1/1]"}>
                     <motion.div 
                         style={{ x: xLeftSection, skewY: "1deg" }}
                         className="origin-bottom-right shadow-xl"
