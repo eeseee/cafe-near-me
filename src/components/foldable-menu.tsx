@@ -30,32 +30,31 @@ export default function Menu({
     const anim = {
         open: { scale: 1.0, rotate: "0deg" },
         folded: { scale: 0.9, rotate: "3deg" },
+        zoomed: { scale: 2.0, y: 150}
     }
 
     return (
         <motion.div
-            animate={isFolded ? "folded" : "open"}
+            animate={isZoomed ? "zoomed" : isFolded ? "folded" : "open"}
             variants={anim}
             initial="folded"
-            className={isZoomed ? "w-[650px] h-[462px]" : ""}
+            whileHover={"open"}
         >
             <motion.div 
                 className="grid aspect-[800/569]"
-                onHoverStart={() => setIsFolded(false)} 
-                onHoverEnd={() => setIsFolded(true)}
             >
                 <div className={"grid grid-cols-3 [grid-area:1/1]"}>
                     <motion.div 
                         style={{ x: xLeftSection, skewY: "1deg" }}
                         className="origin-bottom-right shadow-xl"
                     >
-                        <Image src="/menu-center.png" width={300} height={640} alt="menu-center"/>
+                        <Image src="/menu-left.png" width={300} height={640} alt="menu-center"/>
                     </motion.div>
                     <motion.div 
                         style={{ scaleX: centerScale, "--brightness": centerBrightness } as MotionStyle}
                         className="brightness-[--brightness] shadow-xl"
                     >
-                        <Image src="/menu-right.png" width={300} height={640} alt="menu-right"/>
+                        <Image src="/menu-center.png" width={300} height={640} alt="menu-right"/>
                     </motion.div>
                     <motion.div 
                         style={{ x: xRightSection, skewY: "-1deg" }}
