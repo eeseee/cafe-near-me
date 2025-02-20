@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 interface MenuProps {
     dragX: MotionValue
     isZoomed: boolean
+    setIsZoomed: (isZoomed: boolean) => void
 }
 
 const anim = {
@@ -24,6 +25,7 @@ const slide = {
 export default function Menu({
     dragX,
     isZoomed,
+    setIsZoomed,
 }: MenuProps) {
     const [isFolded, setIsFolded] = useState<boolean>(true);
     const [curIndex, setCurIndex] = useState<number>(1);
@@ -76,6 +78,7 @@ export default function Menu({
                 variants={slide}
                 initial="center"
                 animate={controls}
+                onDoubleClick={() => setIsZoomed(!isZoomed)}
             >
                 <div className={"grid grid-cols-3 [grid-area:1/1]"}>
                     <motion.div 

@@ -41,7 +41,7 @@ export default function Home() {
             >
               <ZoomButton isZoomed={isZoomed} setIsZoomed={setIsZoomed} />
             </motion.div>
-            <Menu dragX={dragX} isZoomed={isZoomed} />
+            <Menu dragX={dragX} isZoomed={isZoomed} setIsZoomed={setIsZoomed}/>
             <motion.div
               initial={{opacity: 0}}
               animate={{ opacity: 1}}
