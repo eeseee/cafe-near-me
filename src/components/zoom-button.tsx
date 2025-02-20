@@ -27,10 +27,10 @@ export default function ZoomButton({
     return (
         <motion.button
             onClick={() => setIsZoomed(!isZoomed)}
-            className="p-2 text-[#5F5F5F] flex"
+            className="px-3 py-1 text-[#5F5F5F] flex justify-center border rounded-full"
         >
             <span>zoom </span>
-                <div className="relative block whitespace-nowrap overflow-hidden w-[30px] ml-1">
+                <div className="relative block whitespace-nowrap overflow-hidden w-[30px]">
                     <div>
                         {LABEL[0].split("").map((l, i) => (
                             <motion.span 

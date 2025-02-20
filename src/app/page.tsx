@@ -9,6 +9,11 @@ import Menu from "@/components/foldable-menu";
 import PageTransition from "@/components/page-transition";
 import ZoomButton from "@/components/zoom-button";
 
+const anim = {
+  initial: { y: 0 },
+  zoom: { y: 180 }
+}
+
 export default function Home() {
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
 
@@ -27,14 +32,14 @@ export default function Home() {
           transition={{ ease: "easeIn", duration: 0.5, delay: 2 }}
         >
           <Header />
-          <div className="flex flex-col justify-center items-center space-y-5">
+          <div className="flex flex-col justify-center items-center space-y-5 pt-5">
             <motion.div
               className="flex justify-center md:hidden"
               initial={{opacity: 0}}
               animate={{ opacity: 1}}
               transition={{ ease: "easeIn", duration: 0.5, delay: 3}}
             >
-              <ZoomButton isZoomed={isZoomed} setIsZoomed={setIsZoomed}/>
+              <ZoomButton isZoomed={isZoomed} setIsZoomed={setIsZoomed} />
             </motion.div>
             <Menu dragX={dragX} isZoomed={isZoomed} />
             <motion.div
@@ -42,19 +47,25 @@ export default function Home() {
               animate={{ opacity: 1}}
               transition={{ ease: "easeIn", duration: 0.5, delay: 3}}
             >
-              <motion.p
-                style={{ opacity: textOpacity, y: textPosition }}
-                className="text-[#5F5F5F] flex items-center"
+              <motion.div
+                variants={anim}
+                initial="initial"
+                animate={isZoomed ? "zoom" : "initial"}
               >
-                drag to open
-                <motion.span
-                  initial={{ x: 0}}
-                  animate={{ x: 10 }}
-                  transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+                <motion.p
+                  style={{ opacity: textOpacity, y: textPosition }}
+                  className="text-[#5F5F5F] flex items-center"
                 >
-                  <ArrowRight className="ml-2 h-4 w-4"/>
-                </motion.span>
-              </motion.p>
+                  drag to open
+                  <motion.span
+                    initial={{ x: 0}}
+                    animate={{ x: 10 }}
+                    transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+                  >
+                    <ArrowRight className="ml-2 h-4 w-4"/>
+                  </motion.span>
+                </motion.p>
+              </motion.div>
             </motion.div>
           </div>
         </motion.main>
