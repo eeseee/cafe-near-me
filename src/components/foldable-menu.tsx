@@ -36,8 +36,6 @@ export default function Menu({
     const centerScale = useTransform(dragX, [100, 200], [0.0, 1.001]);
     const centerBrightness = useTransform(dragX, [100, 200], [0.8, 1]);
 
-    console.log(isFolded)
-
     const handleDragEnd = () => {
       const currentX = dragXMobile.get();
     
