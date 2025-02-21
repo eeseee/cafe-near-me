@@ -31,7 +31,7 @@ export default function ZoomButton({
         >
             <span>zoom </span>
                 <div className="relative block whitespace-nowrap overflow-hidden w-[30px]">
-                    <div>
+                    <div className="flex justify-center">
                         {LABEL[0].split("").map((l, i) => (
                             <motion.span 
                                 key={i}
@@ -48,7 +48,7 @@ export default function ZoomButton({
                             </motion.span>
                         ))}
                     </div>
-                    <div className="absolute inset-0">
+                    <div className="absolute inset-0 flex justify-end">
                         {LABEL[1].split("").map((l, i) => (
                             <motion.span 
                                 key={i}
