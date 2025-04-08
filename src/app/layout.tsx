@@ -4,7 +4,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "cafe near me.",
+  title: "cafe lovelay.",
   icons: {
     icon: "/favicon.ico"
   }
