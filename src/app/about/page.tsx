@@ -25,8 +25,6 @@ export default function About() {
                             <br></br>
                             <p>
                                 menu inspired by <a href="https://x.com/samdape" target="_blank" className="underline">@samdape</a>
-                                <br></br>
-                                menu code template by <a href="https://www.frontend.fyi/tutorials/making-a-foldable-map-with-framer-motion" target="_blank" className="underline">@frontend.fyi</a>
                             </p>
                         </div>
                     </div>
