@@ -20,7 +20,7 @@ export default function About() {
                     <Header />
                     <div className="h-full w-full flex flex-col items-center pt-[100px]">
                         <div className="">
-                            <h1>cafe near me.</h1>
+                            <h1>cafe lovelay.</h1>
                             <p className="">we sometimes host pop-up cafes.</p>
                             <br></br>
                             <p>
